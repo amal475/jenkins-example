@@ -11,42 +11,6 @@ To run this project, you'll need:
 - Docker
 - Jenkins with the Docker Pipeline plugin installed
 
-## Local Setup
-
-Follow these steps to set up the project locally:
-
-1. Clone the repository:
-
-   ```
-   git clone https://github.com/zdbrig/jenkins-example.git
-   ```
-### Navigate to the project directory:
-
-
-``` cd jenkins-example
-
-cd jenkins-example 
-
-```
-
-### Install the project dependencies:
-
-
-``` npm install 
-```
-### Run the application:
-
-
-``` npm start 
-``` 
-### Running with Docker
-The project includes a Dockerfile for building a Docker image of the application.
-
-### Build the Docker image:
-
-
-```docker build -t jenkins-example . 
-```
 
 ### Run the Docker container:
 
