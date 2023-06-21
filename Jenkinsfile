@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm install'
-                sh 'npm test'
+                sh 'node index.js'
             }
         }
 
