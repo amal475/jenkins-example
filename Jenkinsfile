@@ -6,7 +6,7 @@ pipeline {
            
             
             steps {
-                // Construit l'image Docker à partir du Dockerfile
+                // Builds the Docker image from the Dockerfile
                 sh 'docker build -t my-node-app .'
             }
         }
@@ -16,7 +16,7 @@ pipeline {
             
             steps {
                
-                // Exécute les tests de votre application
+                // Execute the tests of your application
                 sh 'docker build -t my-node-app-test-1 -f dockerfiletest .'
                 sh 'docker run -d --name test my-node-app-test-1 npm test'
                  sh 'docker stop  test'
@@ -40,7 +40,7 @@ pipeline {
            
            
             steps {
-                // Déploie votre application (cette étape dépend de votre environnement de déploiement)
+                // Deploy your application (this step depends on your deployment environment)
                 
                 sh '''
                 docker tag my-node-app:latest  sqointeam/repository-sqoin:my-node-app-latest
@@ -49,14 +49,14 @@ pipeline {
                 docker push sqointeam/repository-sqoin:my-node-app-latest
                 docker stop  my-node-app-test
                 docker rm  my-node-app-test
-                docker run -p 3013:3013 -d --name my-node-app-test sqointeam/repository-sqoin:my-node-app-latest
+                docker run -p 3000:3000 -d --name my-node-app-test sqointeam/repository-sqoin:my-node-app-latest
                 '''
             }
         
         }
          stage('Cleanup') {
             steps {
-                // Ajoutez les étapes de nettoyage ici
+                // // Add cleaning steps here
               
               
                 sh 'docker rmi  my-node-app'
